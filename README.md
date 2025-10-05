@@ -1,2 +1,2 @@
 # muhammedrumaiz
-Its my resume. 
+A dedicated administrator with four years of hands-on experience in engineering and maintaining hybrid environments across on-premises data centers and Azure. I focus on operational excellence for both Windows and VMware systems. My key value is ensuring high availability and robust security in the environment. I leverage SolarWinds for proactive monitoring to catch issues before they escalate, and I drive security compliance by efficiently remediating vulnerabilities identified by Qualys. My expertise keeps critical systems running, fast, and secure.
