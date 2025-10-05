@@ -297,7 +297,22 @@ body {
 .timeline-content li {
     margin-bottom: 5px;
 }
+/* Custom styling for the name link in the sidebar */
+.sidebar-name-link {
+    /* 1. Remove the blue link color. 'inherit' takes the color of the parent element. */
+    color: inherit; 
+    
+    /* 2. Remove the link underline. */
+    text-decoration: none;
+    
+    /* 3. Optional, but good: ensure the block has full click area */
+    display: block;
+}
 
+/* Ensure the main heading inside the link also inherits the correct color */
+.sidebar-name-link h2 {
+    color: inherit; /* Should resolve color issues on the name itself */
+}
 
 /* ======================================================= */
 /* ✅ MOBILE & TABLET RESPONSIVENESS (Hamburger Fixes Applied) */
@@ -444,3 +459,4 @@ body {
         padding-right: 20px;
     }
 }
+
