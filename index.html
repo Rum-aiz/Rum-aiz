@@ -17,7 +17,11 @@
                 <p>Windows - VMware - SolarWinds- Administrator</p>
             </div>
 
-            <nav class="sidebar-nav">
+            <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" class="mobile-only">
+                <i class="fas fa-bars"></i> 
+            </button>
+
+            <nav class="sidebar-nav" id="main-nav">
                 <ul>
                     <li><a href="#intro">INTRO</a></li>
                     <li><a href="#education">EDUCATION</a></li>
@@ -210,5 +214,33 @@
         </main>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('main-nav'); 
+
+            if (toggleButton && navMenu) {
+                toggleButton.addEventListener('click', function() {
+                    // Toggles the 'hidden-mobile' class, which is what your CSS uses to hide/show the menu
+                    navMenu.classList.toggle('hidden-mobile');
+
+                    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                    toggleButton.setAttribute('aria-expanded', !isExpanded);
+                });
+
+                // Auto-close menu when a link is clicked
+                const menuLinks = navMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        // Check if the screen is mobile size before auto-closing (900px is the breakpoint)
+                        if (window.innerWidth <= 900) { 
+                            navMenu.classList.add('hidden-mobile');
+                            toggleButton.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
