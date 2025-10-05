@@ -1,4 +1,8 @@
 /* --- Global Styles --- */
+/* Surprise 1: Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -296,7 +300,7 @@ body {
 
 
 /* ======================================================= */
-/* ✅ MOBILE & TABLET RESPONSIVENESS */
+/* ✅ MOBILE & TABLET RESPONSIVENESS (Hamburger Fixes Applied) */
 /* ======================================================= */
 @media (max-width: 900px) {
     /* --- Layout Fixes --- */
@@ -324,11 +328,11 @@ body {
     }
 
     .background-overlay {
-        display: none; /* Hides large background on mobile */
+        display: none; 
     }
 
     .content-wrapper {
-        padding: 0 20px; /* Reduces overall content padding */
+        padding: 0 20px; 
     }
     
     /* --- Sidebar Content Layout --- */
@@ -343,12 +347,19 @@ body {
         display: block; 
     }
 
-    /* 💥 HIDE NAVIGATION BY DEFAULT ON MOBILE */
+    /* 💥 HIDE NAVIGATION BY DEFAULT ON MOBILE (CRITICAL FIX) */
     .sidebar-nav {
         width: 100%; 
         order: 3; 
-        display: none; /* Hidden by default until JS removes 'hidden-mobile' */
+        display: none !important; /* ✅ CRITICAL: Ensures menu is hidden by default */
         flex-grow: 0; 
+    }
+
+    /* 💥 SHOW NAVIGATION WHEN JS TOGGLES THE CLASS (CRITICAL FIX) */
+    /* This rule activates only when the '.hidden-mobile' class is NOT present, forcing visibility */
+    .sidebar-nav:not(.hidden-mobile) {
+        display: flex !important; /* ✅ CRITICAL: Ensures menu is shown when JS runs */
+        flex-direction: column; 
     }
     
     /* Style the links (when visible) */
