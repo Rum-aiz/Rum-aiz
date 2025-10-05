@@ -155,7 +155,7 @@ body {
 
 /* --- Intro Section Styling --- */
 #intro {
-    padding-top: 50px; 
+    padding-top: 30px; 
     padding-bottom: 50px;
     color: #333; 
     position: relative;
@@ -313,7 +313,7 @@ body {
         position: static;
         width: 100%;
         height: auto;
-        padding: 10px 0; 
+        padding: 10px 20 0 0; 
         
         /* FIX: Forces header/toggle, then nav, then actions to stack/wrap */
         flex-direction: row; 
@@ -381,7 +381,7 @@ body {
         /* Actions/Buttons take a full row below the navigation */
         position: static;
         width: 100%;
-        padding: 10px 20px;
+        padding: 2px 20px 10px;
         box-sizing: border-box;
         flex-direction: row; 
         gap: 10px;
@@ -397,11 +397,12 @@ body {
     /* --- Main Content Adjustments --- */
     
     /* Stack intro elements vertically */
+
     .intro-box {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding-top: 30px;
+        padding-top: 2px;
     }
 
     .profile-photo-area {
@@ -426,6 +427,14 @@ body {
     .intro-text h1 {
         font-size: 2em; /* Makes title fit better */
     }
+
+    #intro {
+    padding-top: 10px; 
+    padding-bottom: 50px;
+    color: #333; 
+    position: relative;
+    overflow: hidden; 
+}
 
     /* Reduce general section padding */
     .profile-section {
