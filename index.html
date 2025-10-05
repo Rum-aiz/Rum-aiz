@@ -213,34 +213,42 @@
             </div>
         </main>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButton = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('main-nav'); 
+        const mobileBreakpoint = 900; // Define your CSS breakpoint here
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButton = document.getElementById('menu-toggle');
-            const navMenu = document.getElementById('main-nav'); 
-
-            if (toggleButton && navMenu) {
-                toggleButton.addEventListener('click', function() {
-                    // Toggles the 'hidden-mobile' class, which is what your CSS uses to hide/show the menu
-                    navMenu.classList.toggle('hidden-mobile');
-
-                    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
-                    toggleButton.setAttribute('aria-expanded', !isExpanded);
-                });
-
-                // Auto-close menu when a link is clicked
-                const menuLinks = navMenu.querySelectorAll('a');
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        // Check if the screen is mobile size before auto-closing (900px is the breakpoint)
-                        if (window.innerWidth <= 900) { 
-                            navMenu.classList.add('hidden-mobile');
-                            toggleButton.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                });
+        if (toggleButton && navMenu) {
+            
+            // ✅ CRITICAL FIX: Initialize the menu state on page load 
+            // If the screen is mobile size, ensure the hide class is present.
+            if (window.innerWidth <= mobileBreakpoint) {
+                navMenu.classList.add('hidden-mobile');
             }
-        });
-    </script>
+
+            // Click Handler
+            toggleButton.addEventListener('click', function() {
+                // Toggles the 'hidden-mobile' class
+                navMenu.classList.toggle('hidden-mobile');
+
+                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                toggleButton.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // Auto-close menu when a link is clicked
+            const menuLinks = navMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Check if the screen is mobile size before auto-closing
+                    if (window.innerWidth <= mobileBreakpoint) { 
+                        navMenu.classList.add('hidden-mobile');
+                        toggleButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+    });
+</script>
 </body>
 </html>
